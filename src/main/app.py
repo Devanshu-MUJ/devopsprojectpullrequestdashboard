@@ -1,25 +1,25 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
 
-# Repository we want to analyze
-REPO_OWNER = "octocat"
-REPO_NAME = "Hello-World"
+@app.route("/", methods=["GET", "POST"])
+def index():
+    pulls = []
+    total_prs = 0
 
-def get_pull_requests():
-    url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/pulls"
-    response = requests.get(url)
-    return response.json()
+    if request.method == "POST":
+        owner = request.form.get("owner")
+        repo = request.form.get("repo")
 
-@app.route("/")
-def dashboard():
-    prs = get_pull_requests()
-    total_prs = len(prs)
+        url = f"https://api.github.com/repos/{owner}/{repo}/pulls?state=all&per_page=100"
+        response = requests.get(url)
 
-    return render_template("dashboard.html",
-                           prs=prs,
-                           total_prs=total_prs)
+        if response.status_code == 200:
+            pulls = response.json()
+            total_prs = len(pulls)
+
+    return render_template("index.html", pulls=pulls, total_prs=total_prs)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
