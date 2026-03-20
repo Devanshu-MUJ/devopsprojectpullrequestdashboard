@@ -1,12 +1,12 @@
-# 🚀 Pull Request Dashboard (DevOps Project)
+# Pull Request Dashboard (DevOps Project)
 
-## 📌 Introduction
+## Introduction
 
 The Pull Request Dashboard is a DevOps-based web application that allows users to monitor and analyze pull requests from any public GitHub repository. It provides real-time insights into repository activity, helping developers and teams track contributions efficiently.
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 * To build a web-based dashboard for monitoring GitHub pull requests
 * To integrate GitHub REST API for real-time data fetching
@@ -15,7 +15,7 @@ The Pull Request Dashboard is a DevOps-based web application that allows users t
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 * **Python (Flask)** – Backend web framework
 * **HTML/CSS** – Frontend user interface
@@ -25,22 +25,22 @@ The Pull Request Dashboard is a DevOps-based web application that allows users t
 
 ---
 
-## ⚙️ Features
+## Features
 
-* 🔍 Enter any GitHub username and repository name
-* 📊 Display list of pull requests with:
+* Enter any GitHub username and repository name
+* Display list of pull requests with:
 
   * PR Number
   * Title
   * Author
   * Status
-* 📈 Show total number of pull requests
-* 🌐 Works for any public GitHub repository
-* 🐳 Fully containerized using Docker for easy deployment
+*  Show total number of pull requests
+*  Works for any public GitHub repository
+*  Fully containerized using Docker for easy deployment
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 devopsprojectpullrequestdashboard/
@@ -59,7 +59,7 @@ devopsprojectpullrequestdashboard/
 
 ---
 
-## ▶️ How to Run the Project
+##  How to Run the Project
 
 ### 🔹 Prerequisites
 
@@ -89,7 +89,7 @@ http://localhost:8080
 
 ---
 
-## 📸 Usage
+## Usage
 
 1. Enter GitHub username
 2. Enter repository name
@@ -98,7 +98,7 @@ http://localhost:8080
 
 ---
 
-## 💡 Advantages
+## Advantages
 
 * Eliminates manual tracking of pull requests
 * Provides quick insights into repository activity
@@ -107,7 +107,7 @@ http://localhost:8080
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 * Works only with public repositories
 * Limited to API response (default pagination)
@@ -115,7 +115,7 @@ http://localhost:8080
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 * Add GitHub authentication for private repositories
 * Display closed and merged pull requests
@@ -124,13 +124,13 @@ http://localhost:8080
 
 ---
 
-## 📚 Conclusion
+## Conclusion
 
 This project demonstrates the practical implementation of DevOps concepts such as API integration, containerization, and automation. The Pull Request Dashboard simplifies monitoring of repository activity and can be extended into a more advanced DevOps tool.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 Developed by: **Devanshu Sharma**
 

@@ -1,6 +1,6 @@
 # User Guide
 
-## 🚀 How to Run the Application
+## How to Run the Application
 
 1. Clone the repository:
    git clone https://github.com/Devanshu-MUJ/devopsprojectpullrequestdashboard.git
@@ -16,7 +16,7 @@
 
 ---
 
-## 🧑‍💻 How to Use
+## How to Use
 
 1. Enter GitHub Username
 2. Enter Repository Name
@@ -25,7 +25,7 @@
 
 ---
 
-## 📊 Output Information
+## Output Information
 
 * Pull Request Number
 * Title
@@ -35,7 +35,7 @@
 
 ---
 
-## ⚠️ Notes
+## Notes
 
 * Works only for public repositories
 * Requires internet connection
@@ -43,7 +43,7 @@
 
 ---
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 * If Docker fails, ensure Docker Desktop is running
 * If no data appears, check repository name
@@ -51,6 +51,6 @@
 
 ---
 
-## 📌 Conclusion
+## Conclusion
 
 This tool helps users easily monitor GitHub pull requests in a simple and efficient way.

@@ -1,10 +1,10 @@
 # Design Document
 
-## 🏗️ System Architecture
+## System Architecture
 
 User → Flask App → GitHub API → Response → UI Display
 
-## 🔧 Components
+## Components
 
 ### 1. Frontend
 
@@ -28,7 +28,7 @@ User → Flask App → GitHub API → Response → UI Display
 * Dockerfile for building image
 * Docker Compose for orchestration
 
-## 🔄 Workflow
+## Workflow
 
 1. User enters repository details
 2. Request sent to Flask backend
@@ -36,11 +36,11 @@ User → Flask App → GitHub API → Response → UI Display
 4. API returns PR data
 5. Data displayed on dashboard
 
-## 📊 Data Flow
+## Data Flow
 
 Input → API Request → JSON Response → Data Processing → HTML Rendering
 
-## 🧠 Design Considerations
+## Design Considerations
 
 * Simplicity and usability
 * Scalability using Docker

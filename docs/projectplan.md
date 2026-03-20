@@ -1,14 +1,14 @@
 # Project Plan
 
-## 📌 Project Title
+## Project Title
 
 Pull Request Dashboard
 
-## 🎯 Objective
+## Objective
 
 To develop a web-based dashboard that fetches and displays pull request data from GitHub repositories using API integration and containerized deployment.
 
-## 📅 Timeline
+## Timeline
 
 | Phase   | Task                 | Duration |
 | ------- | -------------------- | -------- |
@@ -18,7 +18,7 @@ To develop a web-based dashboard that fetches and displays pull request data fro
 | Phase 4 | Testing              | 1 day    |
 | Phase 5 | Deployment (Docker)  | 1 day    |
 
-## 🧩 Modules
+## Modules
 
 * User Input Module (Repository details)
 * API Integration Module
@@ -26,12 +26,12 @@ To develop a web-based dashboard that fetches and displays pull request data fro
 * UI Display Module
 * Docker Deployment Module
 
-## ⚠️ Risks
+## Risks
 
 * API rate limits from GitHub
 * Incorrect repository input
 * Network dependency
 
-## ✅ Expected Outcome
+## Expected Outcome
 
 A functional DevOps dashboard that displays real-time pull request data from any public GitHub repository.
