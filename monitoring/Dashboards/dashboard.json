@@ -1,0 +1,9 @@
+{
+  "title": "PR Dashboard Monitoring",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "API Response Time"
+    }
+  ]
+}

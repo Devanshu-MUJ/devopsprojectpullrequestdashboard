@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pr-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pr-dashboard
+  template:
+    metadata:
+      labels:
+        app: pr-dashboard
+    spec:
+      containers:
+      - name: pr-dashboard
+        image: pr-dashboard:latest
+        ports:
+        - containerPort: 8080
