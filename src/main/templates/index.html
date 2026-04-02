@@ -4,8 +4,9 @@
 
 <title>Pull Request Dashboard</title>
 
-<style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<style>
 body{
     font-family: Arial;
     margin:40px;
@@ -36,6 +37,10 @@ th{
     background:#f2f2f2;
 }
 
+.chart-container{
+    width: 500px;
+    margin-top: 30px;
+}
 </style>
 
 </head>
@@ -54,10 +59,24 @@ th{
 
 <hr>
 
-<h3>Total Open Pull Requests: {{ total_prs }}</h3>
+<h3>Total Pull Requests: {{ total_prs }}</h3>
 
+<!-- Charts Section -->
+{% if pulls and pulls|length > 0 %}
+<div class="chart-container">
+    <h3>PRs per Contributor</h3>
+    <canvas id="authorChart"></canvas>
+</div>
+
+<div class="chart-container">
+    <h3>PR Status Distribution</h3>
+    <canvas id="stateChart"></canvas>
+    <p id="stateInfo"></p>
+</div>
+{% endif %}
+
+<!-- Table -->
 <table>
-
 <tr>
 <th>PR Number</th>
 <th>Title</th>
@@ -66,17 +85,69 @@ th{
 </tr>
 
 {% for pr in pulls %}
-
 <tr>
 <td>{{ pr.number }}</td>
 <td>{{ pr.title }}</td>
 <td>{{ pr.user.login }}</td>
 <td>{{ pr.state }}</td>
 </tr>
-
 {% endfor %}
-
 </table>
+
+<!-- SAFE JSON DATA -->
+<script id="chart-data" type="application/json">
+{
+    "authors": {{ authors | tojson | safe }},
+    "states": {{ states | tojson | safe }}
+}
+</script>
+
+<!-- Chart Script -->
+<script>
+const rawData = document.getElementById("chart-data").textContent;
+const parsedData = JSON.parse(rawData);
+
+const authorsData = parsedData.authors || {};
+const statesData = parsedData.states || {open: 0, closed: 0};
+
+// Bar Chart
+if(Object.keys(authorsData).length > 0){
+    new Chart(document.getElementById('authorChart'), {
+        type: 'bar',
+        data: {
+            labels: Object.keys(authorsData),
+            datasets: [{
+                label: 'PR Count',
+                data: Object.values(authorsData)
+            }]
+        }
+    });
+}
+
+// Pie Chart
+if(statesData.open !== 0 || statesData.closed !== 0){
+    new Chart(document.getElementById('stateChart'), {
+        type: 'pie',
+        data: {
+            labels: ['Open', 'Closed'],
+            datasets: [{
+                data: [statesData.open, statesData.closed]
+            }]
+        }
+    });
+}
+// Show percentage info
+const total = statesData.open + statesData.closed;
+
+if(total > 0){
+    const openPercent = ((statesData.open / total) * 100).toFixed(2);
+    const closedPercent = ((statesData.closed / total) * 100).toFixed(2);
+
+    document.getElementById("stateInfo").innerHTML =
+        "Open: " + statesData.open + " (" + openPercent + "%) | " +
+        "Closed: " + statesData.closed + " (" + closedPercent + "%)";
+}
+</script>
 
 </body>
 </html>
